@@ -48,3 +48,38 @@ Precisamos agora configurar o typescript:
         }
     } 
 ~~~ 
+
+## Instalando o nodemon e o tsc-node
+
+`npm install nodemon ts-node --save-dev` 
+
+## Configurando os scripts de inicialização do package.json
+
+~~~JSON
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon ./src/server.ts",
+        "build": "npx tsc"
+    }
+~~~ 
+
+Lembra também de adicionar a pasta ./dist no .gitignore.
+
+## Adicionar o Jest no projeto
+
+`npm install jest --save-dev` 
+
+Para configurar o Jest, inicializamos da seguinte forma:
+
+`npx jest --init` 
+
+A configuração final do arquivo do Jest ficou assim:
+
+~~~Javascript
+    export default {
+    clearMocks: true,
+    collectCoverage: true,
+    coverageDirectory: "coverage",
+    coverageProvider: "v8",
+    };
+~~~
